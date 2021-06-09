@@ -1,0 +1,12 @@
+[
+    {"value": "50/60", "label": "40 / 50 kg"},
+    {"value": "50/60", "label": "50 / 60 kg"},
+    {"value": "60/70", "label": "60 / 70 kg"},
+    {"value": "70/80", "label": "70 / 80 kg"},
+    {"value": "80/90", "label": "80 / 90 kg"},
+    {"value": "90/100", "label": "90 / 100 kg"},
+    {"value": "100/110", "label": "100 / 110 kg"},
+    {"value": "110/120", "label": "110 / 120 kg"},
+    {"value": "120/130", "label": "120 / 130 kg"},
+    {"value": "+130", "label": "+ 130  kg"}
+]

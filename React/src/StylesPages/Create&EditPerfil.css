@@ -1,0 +1,13 @@
+form{
+    font-family: serif;
+    padding-left: 48rem;
+    width: 25rem;
+}
+
+form fieldset{
+    border-radius: 20px;
+}
+
+h2{
+    text-align: center;
+}

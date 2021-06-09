@@ -1,0 +1,51 @@
+.data-user{
+    /*-webkit-border-radius: 50px; 
+    -moz-border-radius: 50px;  */
+    border-radius: 10px; 
+    /* border: none;  */
+    background-position: left top;
+    position: relative;  
+    margin: 5px;
+    padding: 5px;  
+}
+
+.photo-main{
+    background-image: url("../images/pexels-rodnae-productions-7045408.jpg");
+    background-size:100% 40vh;
+    background-repeat: no-repeat;
+    min-height: 40vh;
+}
+
+.information{
+    margin-left: 25rem;
+}
+
+.photoperfil{
+    position: absolute;
+    left: 15rem;
+    top: 18rem;
+}
+
+.photoperfil img{
+    border-radius: 60px;
+    border: solid white;
+    z-index: -1;
+}
+
+.about{
+    display: flex; 
+    flex-direction: row;  
+    justify-content: center; 
+    
+    /* display: grid;
+    grid-template-columns: 4fr 4fr 4fr;
+    padding-right: 10rem; */
+}
+
+.about-me-left{
+    min-width: 30rem;
+}
+
+.about-me-right{
+    min-width: 30rem;
+}
