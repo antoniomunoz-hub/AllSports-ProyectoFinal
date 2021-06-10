@@ -1,3 +1,10 @@
+.father-main{
+    margin: 5px;
+    padding: 5px;
+    border-radius: 25px;
+    border: solid grey 2px;
+}
+
 .data-user{
     /*-webkit-border-radius: 50px; 
     -moz-border-radius: 50px;  */
@@ -14,6 +21,7 @@
     background-size:100% 40vh;
     background-repeat: no-repeat;
     min-height: 40vh;
+    border-radius: 25px;
 }
 
 .information{
@@ -36,6 +44,12 @@
     display: flex; 
     flex-direction: row;  
     justify-content: center; 
+    margin: 5px;
+    margin-top: 15px;
+    padding: 5px;
+    border-radius: 25px;
+    border: solid grey 2px;
+
     
     /* display: grid;
     grid-template-columns: 4fr 4fr 4fr;

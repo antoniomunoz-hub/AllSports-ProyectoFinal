@@ -1,30 +1,43 @@
 import React from 'react'
 import "../../StylesPages/Main.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhone } from '@fortawesome/free-solid-svg-icons';
-import { faMapMarked} from '@fortawesome/free-solid-svg-icons';
+import { faPhone, faMapMarked } from '@fortawesome/free-solid-svg-icons';
+
 
 export default function Main() {
     return (
         <>
-        <main className="data-user">
-            <div className="photo-main"></div>
-            <div className="information">
-                <h3 className="perfilname">Antonio Muñoz</h3>
-                <p>Habilidades aasjasasjasjas</p>
-            </div>  
-            <div className="photoperfil">
-                <img src="https://randomuser.me/api/portraits/men/22.jpg" alt=""/>
-            </div>
-        </main>
+        <div className="father-main">
+            <main className="data-user">
+                <div className="photo-main"></div>
+                <div className="information">
+                    <h3 className="perfilname">Antonio Muñoz</h3>
+                    <p>Habilidades aasjasasjasjas</p>
+                </div>  
+                <div className="photoperfil">
+                    <img src="https://randomuser.me/api/portraits/men/22.jpg" alt=""/>
+                </div>
+            </main>
+        </div>
         <div className="about">
-            <div className="about-me-left"><h3>About</h3></div>
-            <div className="about-me-right">
+            <div className="about-me-left">
+                <h3>About</h3>
+                <div className="link-icon">
+                <a href><i class="fab fa-instagram"></i>insta</a>
+                <a href><i class="fab fa-facebook-square"></i>facebook</a>
+                <a href><i class="fab fa-linkedin"></i>linkdin</a>
+                </div>
             
-            <p><FontAwesomeIcon className="iconphone" icon={faPhone}/> +34 458774887</p>
-            <p><FontAwesomeIcon className="iconphone" icon={faMapMarked}/> San Diego, California</p>
             </div>
-            </div>        
+            
+            <div className="about-me-right">
+                <p><FontAwesomeIcon className="iconphone" icon={faPhone}/> +34 458774887</p>
+                <p><FontAwesomeIcon className="iconloction" icon={faMapMarked}/> San Diego, California</p>
+                <h3>Bio</h3>
+                <p>Informacion de la persona trallectoria etc etc etc</p>
+            </div>
+        </div>    
+            
         </>
     )
 }
