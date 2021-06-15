@@ -10,7 +10,7 @@ export default function Header() {
     return (
         <nav className="nav">
             <div className="logo">
-                LOGO
+                <img src="../logo/logo.svg" alt=""/>
             </div>  
 
             <div className="search">
