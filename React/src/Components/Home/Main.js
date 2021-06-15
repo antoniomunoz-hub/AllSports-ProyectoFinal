@@ -1,7 +1,7 @@
 import React from 'react'
 import "../../StylesPages/Main.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhone, faMapMarked } from '@fortawesome/free-solid-svg-icons';
+import { faPhone, faMapMarked, faGlobeEurope } from '@fortawesome/free-solid-svg-icons';
 
 
 export default function Main() {
@@ -23,9 +23,9 @@ export default function Main() {
             <div className="about-me-left">
                 <h3>About</h3>
                 <div className="link-icon">
-                <a href><i class="fab fa-instagram"></i>insta</a>
-                <a href><i class="fab fa-facebook-square"></i>facebook</a>
-                <a href><i class="fab fa-linkedin"></i>linkdin</a>
+                <a href>insta</a>
+                <a href>facebook</a>
+                <a href><FontAwesomeIcon className="iconworld" icon={faGlobeEurope}/></a>
                 </div>
             
             </div>
@@ -36,7 +36,8 @@ export default function Main() {
                 <h3>Bio</h3>
                 <p>Informacion de la persona trallectoria etc etc etc</p>
             </div>
-        </div>    
+        </div> 
+ 
             
         </>
     )

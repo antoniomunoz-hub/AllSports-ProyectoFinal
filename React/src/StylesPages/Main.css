@@ -63,3 +63,10 @@
 .about-me-right{
     min-width: 30rem;
 }
+
+/* .link-icon{
+    display: flex; 
+    flex-direction: row-reverse;
+    margin-top: 6rem; 
+    min-width: 25vh;
+} */
