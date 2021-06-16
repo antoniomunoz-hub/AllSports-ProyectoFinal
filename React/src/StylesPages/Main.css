@@ -49,6 +49,7 @@
     padding: 5px;
     border-radius: 25px;
     border: solid grey 2px;
+    width: 90rem;
 
     
     /* display: grid;
@@ -57,9 +58,29 @@
 }
 
 .about-me-left{
+    padding-left: 6rem;
+    align-items: center;
+}
+
+.link-icon{
+    
+    align-items: center;
+}
+.about-me-left{
     min-width: 30rem;
 }
 
 .about-me-right{
     min-width: 30rem;
+}
+
+.publications{
+    display: flex; 
+    flex-direction: row;  
+    justify-content: center; 
+    margin: 5px;
+    margin-top: 15px;
+    padding: 5px;
+    border-radius: 25px;
+    border: solid grey 2px;
 }

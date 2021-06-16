@@ -36,6 +36,21 @@ export default function Main() {
                 <h3>Bio</h3>
                 <p>Informacion de la persona trallectoria etc etc etc</p>
             </div>
+
+            <div className="publications">
+                <div className="header-publications">
+
+                </div>
+
+            </div>
+
+            <div className="activity">
+
+            </div>
+
+            <div className="news-feed">
+                
+            </div>
         </div>    
             
         </>
