@@ -24,7 +24,7 @@ export default function Main() {
                 <h3>About</h3>
                 <div className="link-icon">
                 <a href><FontAwesomeIcon className="iconworld" icon={faGlobeEurope}/></a>
-                <a href><i class="fab fa-facebook-square"></i>facebook</a>
+                <a href><img src="/instagram-square-brands.svg" width="25px"></img></a>
                 <a href><FontAwesomeIcon className="iconvideo" icon={faVideo}/></a>
                 </div>
             
@@ -37,9 +37,11 @@ export default function Main() {
                 <p>Informacion de la persona trallectoria etc etc etc</p>
             </div>
 
-            <div className="publications">
+        </div>
+        
+        <div className="publications">
                 <div className="header-publications">
-
+                <textarea name="" id="" cols="30" rows="10"></textarea>
                 </div>
 
             </div>
@@ -50,8 +52,8 @@ export default function Main() {
 
             <div className="news-feed">
                 
-            </div>
-        </div>    
+            </div>    
+
             
         </>
     )
