@@ -1,12 +1,12 @@
 import React from 'react'
 import Header from '../Components/Header';
-import Main from '../Components/Home/Main';
+import Feed from '../Components/Home/Feed'
 
 export default function Home() {
     return (
         <div>
             <Header/>
-            <Main/>
+            <Feed/>
         </div>
     )
 }
