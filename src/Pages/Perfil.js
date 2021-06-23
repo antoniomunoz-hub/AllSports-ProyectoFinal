@@ -1,15 +1,18 @@
 import React from 'react'
 import "../StylesPages/Main.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhone, faMapMarked, faVideo, faGlobeEurope } from '@fortawesome/free-solid-svg-icons';
-
+import { faFacebookF, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons' 
+import { faPhone, faMapMarked, faGlobeEurope } from '@fortawesome/free-solid-svg-icons';
+import Header from "../Components/Header"
+import Feed from "../Components/Home/Feed"
 
 export default function Main() {
     return (
         <>
-        <div className="father-main container">
-            <main className="data-user">
-                <div className="photo-main"></div>
+        <Header/>
+        <div className="father-main container radius">
+            <main className="data-user container">
+                <div className="photo-main radius"></div>
                 <div className="information">
                     <h3 className="perfilname">Antonio Muñoz</h3>
                     <p>Habilidades aasjasasjasjas</p>
@@ -19,27 +22,28 @@ export default function Main() {
                 </div>
             </main>
         </div>
-        <div className="about">
+        <div className="about radius">
             <div className="about-me-left">
                 <h3>About</h3>
                 <div className="link-icon">
-                <a href><FontAwesomeIcon className="iconworld" icon={faGlobeEurope}/></a>
-                <a href><img src="/instagram-square-brands.svg" width="25px"></img></a>
-                <a href><FontAwesomeIcon className="iconvideo" icon={faVideo}/></a>
+                <a href><FontAwesomeIcon className="icon" icon={faGlobeEurope}/></a>
+                <a href><FontAwesomeIcon className="icon" icon={faInstagram}/></a>
+                <a href><FontAwesomeIcon className="icon" icon={faYoutube}/></a>
+                <a href><FontAwesomeIcon className="icon" icon={faFacebookF}/></a>
                 </div>
             
             </div>
             
             <div className="about-me-right">
-                <p><FontAwesomeIcon className="iconphone" icon={faPhone}/> +34 458774887</p>
-                <p><FontAwesomeIcon className="iconloction" icon={faMapMarked}/> San Diego, California</p>
+                <p><FontAwesomeIcon className="icon" icon={faPhone}/> +34 458774887</p>
+                <p><FontAwesomeIcon className="icon" icon={faMapMarked}/> San Diego, California</p>
                 <h3>Bio</h3>
                 <p>Informacion de la persona trallectoria etc etc etc</p>
             </div>
 
         </div>
         
-        <div className="publications">
+        <div className="new-publications radius">
                 <div className="header-publications">
                 <textarea name="" id="" cols="30" rows="10"></textarea>
                 </div>
@@ -50,9 +54,7 @@ export default function Main() {
 
             </div>
 
-            <div className="news-feed">
-                
-            </div>    
+            <Feed/>    
 
             
         </>

@@ -4,11 +4,11 @@ import "../../StylesPages/Feed.css"
 export default function Feed() {
     return (
         <>
-        <div className="publication">
+        <div className="publication radius">
             <div className="parent-feed">
                 <div className="image">
                     
-                <img src="/images/52.jpeg"></img>
+                <img className="radius" src="/images/52.jpeg"></img>
                 
                 </div>
                 <div className="name">
@@ -19,7 +19,7 @@ export default function Feed() {
             
             <div className="content-publication">
             <p>Titulo publicacion</p>
-            <img src="/images/mountain.jpg" alt=""/>
+            <img className="radius" src="/images/mountain.jpg" alt=""/>
         </div>
      </div>
      </>
