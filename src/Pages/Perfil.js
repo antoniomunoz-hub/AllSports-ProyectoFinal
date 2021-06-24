@@ -2,7 +2,7 @@ import React from 'react'
 import "../StylesPages/Main.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons' 
-import { faPhone, faMapMarked, faGlobeEurope } from '@fortawesome/free-solid-svg-icons';
+import { faPhone, faMapMarked, faGlobeEurope, faCamera } from '@fortawesome/free-solid-svg-icons';
 import Header from "../Components/Header"
 import Feed from "../Components/Home/Feed"
 
@@ -45,7 +45,14 @@ export default function Main() {
         
         <div className="new-publications radius">
                 <div className="header-publications">
-                <textarea name="" id="" cols="30" rows="10"></textarea>
+                    <h4>Nueva Publicacion</h4>
+                </div>
+                <div className="area">
+                    <textarea className="text-area" name="" id="" cols="30" rows="10" placeholder="Escribe aqui..."></textarea>
+                </div>
+                <div className="footer-publication">
+                    <button className="button-publication"><FontAwesomeIcon icon={faCamera}></FontAwesomeIcon> Examinar </button>
+                    <button className="button-publication">Guardar</button>
                 </div>
 
             </div>

@@ -14,7 +14,7 @@
     padding-left: 3rem;
 }
 
-.entry input, a, button{
+.entry .entry-input, .link-entry, .create{
     display: block;
     margin: 0.5rem;
     width: 20rem;

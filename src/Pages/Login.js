@@ -16,10 +16,10 @@ export default function Login() {
 
             <div className="entry">
                 <h3>Login</h3>
-                <input type="text" placeholder="Correo electronico"/>
-                <input type="password"  placeholder="Contraseña"/>
+                <input className="entry-input" type="text" placeholder="Correo electronico"/>
+                <input className="entry-input" type="password"  placeholder="Contraseña"/>
                 <button className="entryaccount" onClick={()=>history.push("/home")}>Entrar</button>
-                <Link to="/forgot-password">¿Has olvidado la contraseña?</Link>
+                <Link className="link-entry" to="/forgot-password">¿Has olvidado la contraseña?</Link>
                 <button className="create"onClick={()=>history.push("/create-account")}>Crear cuenta nueva</button>
             </div>  
         </div>
