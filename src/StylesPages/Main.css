@@ -61,9 +61,7 @@
     flex-direction: row;   
 }
 
-.icon{
-    
-}
+
 .about-me-left{
     min-width: 30rem;
 }
@@ -121,3 +119,34 @@
     text-align: center;
     border-bottom: solid grey 2px;
 }
+
+.publication{
+    border:solid 1px black;
+    width: 70vh;
+    margin: auto;
+    height: 80vh;
+    align-items: center;
+    margin-top: 3rem;
+}
+.parent-feed{
+   display: flex;
+   width: 50vh;
+   margin-top: 10px;
+   
+      
+}
+.image img{
+    
+    width: 50px;
+    margin-left: 7rem;
+}
+
+.image{
+    flex: 1;
+}
+
+.feed-perfil{
+    margin-top: -26.8rem;
+    margin-left: -6.7rem;
+}
+

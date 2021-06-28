@@ -57,11 +57,11 @@ export default function Main() {
 
             </div>
 
-            <div className="activity">
-
+            <div className="feed-perfil">
+                <Feed/>   
             </div>
 
-            <Feed/>    
+                
 
             
         </>
