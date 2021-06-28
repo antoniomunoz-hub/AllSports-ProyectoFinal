@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, {useState} from 'react';
 import Select from 'react-select';
 import sports from "../../data/ListSports";
 
