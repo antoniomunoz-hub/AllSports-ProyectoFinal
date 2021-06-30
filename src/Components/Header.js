@@ -1,7 +1,7 @@
 import React from 'react'
 import "../StylesPages/Header.css";
 import {useHistory} from "react-router-dom";
-import Tooltip from "react-simple-tooltip"
+import ReactTooltip from 'react-tooltip';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignOutAlt, faEdit } from '@fortawesome/free-solid-svg-icons';
 
@@ -27,9 +27,7 @@ export default function Header() {
         <nav className="nav">
             
             <div className="logo" onClick={()=>goHome()}>
-                <Tooltip content="Home">
                 <img src="../logo/logo.svg" alt=""/>
-                </Tooltip>
             </div>  
 
             <div className="search">
@@ -43,15 +41,19 @@ export default function Header() {
             </div>
 
             <div className="alert" onClick={()=>goEdit()}>
-                <FontAwesomeIcon className="iconbell" icon={faEdit}/>
+                <FontAwesomeIcon className="iconbell" icon={faEdit} data-tip data-for="iconperfil"/>
                 
             </div>
+            
             <div className="alert" onClick={()=>singOut()}>
-                <FontAwesomeIcon className="iconbell" icon={faSignOutAlt}/>
+                <FontAwesomeIcon className="iconbell" icon={faSignOutAlt} data-tip data-for="iconout"/>
             </div>
             
+            <ReactTooltip id="iconout">Pulsa Para Salir</ReactTooltip>
+            <ReactTooltip id="iconperfil">Editar Perfil</ReactTooltip>
             
-        
+            
+            
             </div>
 
         </nav>

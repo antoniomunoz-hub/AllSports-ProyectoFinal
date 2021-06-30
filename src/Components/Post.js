@@ -1,7 +1,7 @@
 import React from 'react'
-import "../../StylesPages/Post.css"
+import "../StylesPages/Post.css"
 
-export default function Feed() {
+export default function Post() {
     return (
         <>
         {/* {posts.map(post => <Post post={post}/>)} */}

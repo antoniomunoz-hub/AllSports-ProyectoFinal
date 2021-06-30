@@ -1,5 +1,5 @@
 import React from 'react'
-import "../StylesPages/Main.css"
+import "../StylesPages/Perfil.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons' 
 import { faPhone, faMapMarked, faGlobeEurope, faCamera } from '@fortawesome/free-solid-svg-icons';
