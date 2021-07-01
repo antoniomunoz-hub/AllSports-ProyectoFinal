@@ -5,9 +5,25 @@ import CountrySelector from "../Components/Selects/CountrySelector";
 import SportsSelect from '../Components/Selects/SportsSelect';
 import ListWeights from '../Components/Selects/ListWheights';
 import "../StylesPages/Create&EditPerfil.css";
+import RoleSelect from '../Components/Selects/RoleSelect';
 
 export default function CreateAccount() {
+    const [typePerfil, setTypePerfil] = useState("Athlete");
+    let extraForm;
 
+    if(typePerfil === "Manager"){
+        extraForm = (
+                
+            <h4>price</h4>
+        )
+    }
+
+    const handleChangeType = e => {
+        setTypePerfil(e.target.value)
+    }
+
+    // onChange={handleChangeType} checked={typePerfil}
+    
     return (
         <div>
             <h2>Es Momento de unirte a la comuindad Allsports</h2><br/>
@@ -15,17 +31,9 @@ export default function CreateAccount() {
             <form action="">
                 <fieldset>
                 <legend>Que perfil tienes?</legend>
-                <div>
-                    <input type="radio" name="typePerfil" id="athletePerfil"/>
-                    <label htmlFor="athletePerfil">Athleta</label>
-                </div>
-                <div>
-                    <input type="radio" name="typePerfil" id="coachPerfil"/>
-                    <label htmlFor="coachPerfil">Entrenador</label>
-                </div>
-                <div>
-                    <input type="radio" name="typePerfil" id="managerPerfil"/>
-                    <label htmlFor="managerPerfil">Manager</label>
+                <div className="imputblock">
+                    <h3>Role:</h3>
+                    <Select options={role} value={value} onChange={changeHandler}/><br/>    
                 </div>
                 <div className="imputblock">
                         <h3>Disciplina:</h3>
@@ -83,6 +91,8 @@ export default function CreateAccount() {
                 </fieldset><br/>      
                 <input className type="submit" value="Enviar"></input> 
             </form>
+
+    
         </div>    
     )
 }

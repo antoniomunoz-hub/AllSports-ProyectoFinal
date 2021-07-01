@@ -1,0 +1,5 @@
+[
+    {"value": "Atleta", "label": "Atleta"},
+    {"value": "Entrenador", "label": "Entrenador"},
+    {"value": "Manager", "label": "Manager"}
+]
