@@ -1,9 +1,11 @@
 import React from 'react'
 import "../../StylesPages/Perfil.css"
+import Modal from 'react-modal';
 
 export default function EditPuclication() {
     return (
         <div className="new-publications radius">
+            <Modal>
                 <div className="header-publications">
                     <h4>Nueva Publicacion</h4>
                 </div>
@@ -16,6 +18,7 @@ export default function EditPuclication() {
                     
 
                 </div>
+            </Modal>
             </div>
     )
 }

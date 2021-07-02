@@ -1,6 +1,5 @@
 
 import React, { useState, useMemo } from 'react';
-
 import {useForm} from '../Components/Hook/UseForm';
 import "../StylesPages/Create&EditPerfil.css";
 import weights from "../data/ListWeights.json";
@@ -27,7 +26,7 @@ export default function CreateAccount() {
 
 
     // if(form.role === "Entrenador") {
-    //    extraForm = <p>Este dole es de entrenador</p>;
+    //    extraForm = <p>Este dole es de entrenador</p
     // } else {
         
     // }.
