@@ -2,35 +2,54 @@
 import React, { useState, useMemo } from 'react';
 
 import {useForm} from '../Components/Hook/UseForm';
-import CountrySelector from "../Components/Selects/CountrySelector";
-import SportsSelect from '../Components/Selects/SportsSelect';
-import ListWeights from '../Components/Selects/ListWheights';
 import "../StylesPages/Create&EditPerfil.css";
-import RoleSelect from '../Components/Selects/RoleSelect';
+import weights from "../data/ListWeights.json";
+import sports from "../data/ListSports.json";
+import roles from "../data/RolesUser.json";
+import countryList from "../data/countryList.json";
+import Select from 'react-select';
 
 
 
-export default function CreateAccount({setContacts}) {
-    const initialFormState = {name: "", lastname: "", male: "", female: "", password: "", confirmpassword: "", date: ""};
-    const [form, handleInputChange] = useForm(initialFormState); // Custom Hook
 
+export default function CreateAccount() {
+    const initialFormState = {name: "", lastname: "", male: "", female: "", password: "", confirmpassword: "", date: "",
+     weights: "", country: "", role: "", sport:""};
+    const [form, handleInputChange, handleSelectChange] = useForm(initialFormState); // Custom Hook
     const handleSubmit = e => {
         e.preventDefault();
-        setContacts(contacts => [...contacts, form])
+        // TODO: fetch con método post a tu endpoint de registro
     };
+
+    //utilizar use effect para cuando se actualize el estado del role inyecte el formularuio extra
+
+    // let extraForm = "Entrenador";
+
+
+    // if(form.role === "Entrenador") {
+    //    extraForm = <p>Este dole es de entrenador</p>;
+    // } else {
+        
+    // }.
+
+
+    //Crear un modal para editar los post subido 
+
+    
     return (
         <div>
             <h2>Es Momento de unirte a la comuindad Allsports</h2><br/>
             <form onSubmit={handleSubmit}>
                 <fieldset>
-                <legend>Que perfil tienes?</legend>
-                <div className="imputblock">
-                    <h3>Role:</h3>
-                    <RoleSelect/><br/>
-                </div>
-                <div className="imputblock">
+                    <legend>Que perfil tienes?</legend>
+                    <div className="imputblock">
+                        <h3>Role:</h3>
+                        <Select options={roles} value={form.role} onChange={value => handleSelectChange(value, "role")} name="role"/><br/>
+                    </div>
+                    <div className="imputblock">
                         <h3>Disciplina:</h3>
-                        <SportsSelect/><br/>
+                        <Select options={sports} value={form.sport} onChange={value => handleSelectChange(value, "sport")} name="sport"/><br/>
+                        
                     </div>
                 </fieldset>
 
@@ -61,12 +80,12 @@ export default function CreateAccount({setContacts}) {
 
                     <div className="weight">
                         <h4>Peso:</h4>
-                        <ListWeights/>
+                        <Select options={weights} value={form.weights} onChange={value => handleSelectChange(value, "weights")} name="weights"/>
                     </div>
 
                     <div className="imputblock">
                         <h3>Pais:</h3>
-                        <CountrySelector/><br/>
+                        <Select options={countryList} value={form.country} onChange={value => handleSelectChange(value, "country")} name="country"/>
                     </div>
 
                     <div className="imputblock">

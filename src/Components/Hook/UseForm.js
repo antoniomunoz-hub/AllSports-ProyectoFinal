@@ -14,10 +14,21 @@ const useForm = (initialState) => {
             Utilizada por todos los inputs del formulario en cada cambio.
             Diferencia el responsable del cambio gracias a su atributo "name".
         */
-
         const inputName = e.target.name;
         const inputValue = e.target.value;
 
+        setForm(previousState => {
+            /* Actualiza sólo la propiedad correspondiente al input específico */
+            return {...previousState, [inputName]: inputValue}
+        });
+    }
+
+    const handleSelectChange = (inputValue, inputName) => {
+        /*
+            Utilizada por todos los inputs del formulario en cada cambio.
+            Diferencia el responsable del cambio gracias a su atributo "name".
+        */
+        
         setForm(previousState => {
             /* Actualiza sólo la propiedad correspondiente al input específico */
             return {...previousState, [inputName]: inputValue}
@@ -28,7 +39,7 @@ const useForm = (initialState) => {
         Decidimos que devuelva el estado (objeto form) y la función
         que actualiza una propiedad individual, en lugar del setForm
      */
-    return [form, handleInputChange];
+    return [form, handleInputChange, handleSelectChange];
 }
 
 export {useForm};
