@@ -20,8 +20,10 @@ export default function Feed() {
             
             <div className="content-publication">
             <p>Titulo publicacion</p>
-            <img className="radius" src="/images/mountain.jpg" alt=""/>
+            <img className="radius" src="/images/mountain.jpg" alt=""/>    
         </div>
+        <button className="button-publication">Eliminar</button>
+        <button className="button-publication">Editar</button>
      </div>
      </>
     )

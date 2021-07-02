@@ -53,6 +53,10 @@ export default function Main() {
                 <div className="footer-publication">
                     <button className="button-publication"><FontAwesomeIcon icon={faCamera}></FontAwesomeIcon> Examinar </button>
                     <button className="button-publication">Guardar</button>
+                    <button className="button-publication">Eliminar</button>
+                    <button className="button-publication">Editar</button>
+
+
                 </div>
 
             </div>
