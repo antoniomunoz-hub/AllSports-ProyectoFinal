@@ -22,3 +22,49 @@
 body{
     background-color: whitesmoke;
 }
+
+@media only screen and (max-width: 600px){
+    .footer{
+   
+        display: block;
+        justify-content: center;
+        margin-top: 1rem;
+       
+    }
+    
+    .footer div{
+        border: black solid;
+        min-width: 10rem;
+        margin-left: 1rem;
+        border-radius: 20px;
+        padding: 2rem;
+    }
+    
+    .copyright{
+        text-align: center;
+    }
+    
+}
+
+@media only screen and (max-width: 1024px){ 
+    .footer{
+   
+        display: block;
+        justify-content: center;
+        margin-top: 1rem;
+       
+    }
+    
+    .footer div{
+        border: black solid;
+        min-width: 10rem;
+        margin-left: 1rem;
+        border-radius: 20px;
+        padding: 2rem;
+    }
+    
+    .copyright{
+        text-align: center;
+    }
+    
+}

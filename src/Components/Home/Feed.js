@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "../../StylesPages/Post.css"
+import EditPublication from './EditPublication'
 
-export default function Feed() {
+export default function Feed(props) {
+    const [showModal, setShowModal ] =useState(false);
+    const handleClose = () => setShowModal(false);
     return (
         <>
         {/* {posts.map(post => <Post post={post}/>)} */}
@@ -22,9 +25,17 @@ export default function Feed() {
             <p>Titulo publicacion</p>
             <img className="radius" src="/images/mountain.jpg" alt=""/>    
         </div>
-        <button className="button-publication">Eliminar</button>
-        <button className="button-publication">Editar</button>
+        {props.editMode && (
+            <>
+            <button className="button-publication">Eliminar</button>
+            <button onClick={() => setShowModal(true)} className="button-publication">Editar</button>
+            </>
+        )}
+        
+
      </div>
+
+     <EditPublication handleClose={handleClose.bind(this)} show={showModal}/>
      </>
     )
 }

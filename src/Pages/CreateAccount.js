@@ -1,5 +1,5 @@
 
-import React, { useState, useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import {useForm} from '../Components/Hook/UseForm';
 import "../StylesPages/Create&EditPerfil.css";
 import weights from "../data/ListWeights.json";
@@ -15,25 +15,11 @@ export default function CreateAccount() {
     const initialFormState = {name: "", lastname: "", male: "", female: "", password: "", confirmpassword: "", date: "",
      weights: "", country: "", role: "", sport:""};
     const [form, handleInputChange, handleSelectChange] = useForm(initialFormState); // Custom Hook
+    const [extra, setExtra] = useState(false);
     const handleSubmit = e => {
         e.preventDefault();
         // TODO: fetch con método post a tu endpoint de registro
     };
-
-    //utilizar use effect para cuando se actualize el estado del role inyecte el formularuio extra
-
-    // let extraForm = "Entrenador";
-
-
-    // if(form.role === "Entrenador") {
-    //    extraForm = <p>Este dole es de entrenador</p
-    // } else {
-        
-    // }.
-
-
-    //Crear un modal para editar los post subido 
-
     
     return (
         <div>
@@ -48,8 +34,11 @@ export default function CreateAccount() {
                     <div className="imputblock">
                         <h3>Disciplina:</h3>
                         <Select options={sports} value={form.sport} onChange={value => handleSelectChange(value, "sport")} name="sport"/><br/>
-                        
+        
                     </div>
+                    {form.role === "Entrenador" && (<p>este rol es entrenador</p>)}
+                    {form.role === "Manager"  && (<p>este rol es manager</p>)}
+                    {form.role === "Atleta" &&(<p>este rol es de atleta</p>) }
                 </fieldset>
 
                 <br/>
