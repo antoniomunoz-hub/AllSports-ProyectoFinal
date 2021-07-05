@@ -1,10 +1,11 @@
 
-import React, { useEffect, useMemo, useState } from 'react';
+import React from 'react';
 import {useForm} from '../Components/Hook/UseForm';
 import "../StylesPages/Create&EditPerfil.css";
 import weights from "../data/ListWeights.json";
 import sports from "../data/ListSports.json";
 import roles from "../data/RolesUser.json";
+import prices from "../data/PriceManager.json";
 import countryList from "../data/countryList.json";
 import Select from 'react-select';
 
@@ -13,9 +14,9 @@ import Select from 'react-select';
 
 export default function CreateAccount() {
     const initialFormState = {name: "", lastname: "", male: "", female: "", password: "", confirmpassword: "", date: "",
-     weights: "", country: "", role: "", sport:""};
+     weights: "", country: "", role: "", sport:"", specialty: "", price: "", career:""};
     const [form, handleInputChange, handleSelectChange] = useForm(initialFormState); // Custom Hook
-    const [extra, setExtra] = useState(false);
+    // const [extra, setExtra] = useState(false);
     const handleSubmit = e => {
         e.preventDefault();
         // TODO: fetch con método post a tu endpoint de registro
@@ -34,11 +35,32 @@ export default function CreateAccount() {
                     <div className="imputblock">
                         <h3>Disciplina:</h3>
                         <Select options={sports} value={form.sport} onChange={value => handleSelectChange(value, "sport")} name="sport"/><br/>
-        
                     </div>
-                    {form.role === "Entrenador" && (<p>este rol es entrenador</p>)}
-                    {form.role === "Manager"  && (<p>este rol es manager</p>)}
-                    {form.role === "Atleta" &&(<p>este rol es de atleta</p>) }
+
+                    {form.role.value === "Entrenador" && (
+                    <div className="imputblock">
+                        <h3>Especialidades:</h3><br/>
+                        <textarea className="textarea-form" name="specialty" id="" cols="45" rows="10" 
+                        placeholder="Escribe y resume tus especialidades.."
+                        onChange={handleInputChange} value={form.specialty}>
+                    </textarea>
+                    </div>)}
+                    
+                    {form.role.value === "Manager"  && (
+                    <div className="imputblock">
+                        <h3>% Segun Contrato:</h3>
+                        <Select options={prices} value={form.prices} onChange={value => handleSelectChange(value, "price")} name="price"/><br/>
+                    </div>)}
+
+                    {form.role.value === "Atleta" &&(
+                    <div className="imputblock">
+                        <h3>Carrera:</h3><br/>
+                        <textarea className="textarea-form" name="career" id="" cols="45" rows="10" 
+                        placeholder="Resumenos tu carrera profesional/amateur.."
+                        onChange={handleInputChange} value={form.career}>
+                    </textarea>
+                </div>)}
+
                 </fieldset>
 
                 <br/>

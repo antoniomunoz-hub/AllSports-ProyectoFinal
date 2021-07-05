@@ -11,3 +11,7 @@ form fieldset{
 h2{
     text-align: center;
 }
+
+.textarea-form{
+    resize: none;
+}

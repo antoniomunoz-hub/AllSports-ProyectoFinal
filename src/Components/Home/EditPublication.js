@@ -42,7 +42,6 @@ export default function EditPublication(props) {
                 <div className="footer-publication">
                     <button className="button-publication"><FontAwesomeIcon icon={faCamera}></FontAwesomeIcon> Examinar </button>
                     <button onClick={ () => props.handleClose() } className="button-publication">Guardar</button>
-                
                 </div>
             </div>
         </Modal>

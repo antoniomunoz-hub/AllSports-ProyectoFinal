@@ -31,7 +31,7 @@ const useForm = (initialState) => {
         
         setForm(previousState => {
             /* Actualiza sólo la propiedad correspondiente al input específico */
-            return {...previousState, [inputName]: inputValue.value}
+            return {...previousState, [inputName]: inputValue}
         });
     }
 
