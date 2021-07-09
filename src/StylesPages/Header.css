@@ -42,3 +42,48 @@
 .iconbell:hover{
     color: red;
 }
+
+@media only screen and (max-width: 700px){
+    .nav{
+        display: grid;
+        grid-template-columns: 2fr 8fr 1fr 1fr;
+        margin: 5px;
+        padding: 5px;
+        background-color: blue;
+        border-radius: 6px;
+        width: 100%;
+        
+    }
+
+    .search input{
+        width: 180px;
+    }
+
+    .actions{
+        padding-left: 6px;
+    }
+    
+}
+
+@media only screen and (max-width: 1024px){
+    .nav{
+        display: grid;
+        grid-template-columns: 2fr 8fr 1fr 1fr;
+        margin: 5px;
+        padding: 5px;
+        background-color: blue;
+        border-radius: 6px;
+        width: 100%;
+        
+    }
+
+   .actions{
+       padding-left: 60px;
+   }
+
+    .search input{
+        width: 300px;
+    }
+
+}
+    
