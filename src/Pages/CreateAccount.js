@@ -20,6 +20,8 @@ export default function CreateAccount() {
     const handleSubmit = e => {
         e.preventDefault();
         // TODO: fetch con método post a tu endpoint de registro
+
+        // entrar en componenter abrir create account y que el form me devuelva solo los values no el objeto entero 
     };
     
     return (
