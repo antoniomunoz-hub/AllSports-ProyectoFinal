@@ -32,11 +32,11 @@ export default function CreateAccount() {
                     <legend>Que perfil tienes?</legend>
                     <div className="imputblock">
                         <h3>Role:</h3>
-                        <Select options={roles} value={form.role} onChange={value => handleSelectChange(value, "role")} name="role"/><br/>
+                        <Select options={roles} value={form.role.value} onChange={value => handleSelectChange(value.value, "role")} name="role"/><br/>
                     </div>
                     <div className="imputblock">
                         <h3>Disciplina:</h3>
-                        <Select options={sports} value={form.sport} onChange={value => handleSelectChange(value, "sport")} name="sport"/><br/>
+                        <Select options={sports} value={form.sport.value} onChange={value => handleSelectChange(value.value, "sport")} name="sport"/><br/>
                     </div>
 
                     {form.role.value === "Entrenador" && (
@@ -51,7 +51,7 @@ export default function CreateAccount() {
                     {form.role.value === "Manager"  && (
                     <div className="imputblock">
                         <h3>% Segun Contrato:</h3>
-                        <Select options={prices} value={form.prices} onChange={value => handleSelectChange(value, "price")} name="price"/><br/>
+                        <Select options={prices} value={form.prices.value} onChange={value => handleSelectChange(value.value, "price")} name="price"/><br/>
                     </div>)}
 
                     {form.role.value === "Atleta" &&(
@@ -92,12 +92,12 @@ export default function CreateAccount() {
 
                     <div className="weight">
                         <h4>Peso:</h4>
-                        <Select options={weights} value={form.weights} onChange={value => handleSelectChange(value, "weights")} name="weights"/>
+                        <Select options={weights} value={form.weights.value} onChange={value => handleSelectChange(value.value, "weights")} name="weights"/>
                     </div>
 
                     <div className="imputblock">
                         <h3>Pais:</h3>
-                        <Select options={countryList} value={form.country} onChange={value => handleSelectChange(value, "country")} name="country"/>
+                        <Select options={countryList} value={form.country.value} onChange={value => handleSelectChange(value.value, "country")} name="country"/>
                     </div>
 
                     <div className="imputblock">
