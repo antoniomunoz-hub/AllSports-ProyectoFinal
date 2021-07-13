@@ -26,7 +26,7 @@ export default function CreateAccount() {
     
     return (
         <div>
-            <h2>Es Momento de unirte a la comuindad Allsports</h2><br/>
+            <h2>Es Momento de unirte a la comunidad Allsports</h2><br/>
             <form onSubmit={handleSubmit}>
                 <fieldset>
                     <legend>Que perfil tienes?</legend>
@@ -39,7 +39,7 @@ export default function CreateAccount() {
                         <Select options={sports} value={form.sport.value} onChange={value => handleSelectChange(value.value, "sport")} name="sport"/><br/>
                     </div>
 
-                    {form.role.value === "Entrenador" && (
+                    {form.role === "Entrenador" && (
                     <div className="imputblock">
                         <h3>Especialidades:</h3><br/>
                         <textarea className="textarea-form" name="specialty" id="" cols="45" rows="10" 
@@ -48,13 +48,13 @@ export default function CreateAccount() {
                     </textarea>
                     </div>)}
                     
-                    {form.role.value === "Manager"  && (
+                    {form.role === "Manager"  && (
                     <div className="imputblock">
                         <h3>% Segun Contrato:</h3>
                         <Select options={prices} value={form.prices.value} onChange={value => handleSelectChange(value.value, "price")} name="price"/><br/>
                     </div>)}
 
-                    {form.role.value === "Atleta" &&(
+                    {form.role === "Atleta" &&(
                     <div className="imputblock">
                         <h3>Carrera:</h3><br/>
                         <textarea className="textarea-form" name="career" id="" cols="45" rows="10" 
@@ -86,8 +86,8 @@ export default function CreateAccount() {
 
                     <div className="sexo">
                         <h4>Sexo:</h4>
-                        <input onChange={handleInputChange} value={form.male} type="radio" name="male" value="h" required/> Hombre
-                        <input onChange={handleInputChange} value={form.female} type="radio" name="female" value="m"/> Mujer
+                        <input onChange={handleInputChange} value={form.male} type="radio" name="male" required/> Hombre
+                        <input onChange={handleInputChange} value={form.female} type="radio" name="female"/> Mujer
                     </div>
 
                     <div className="weight">

@@ -1,5 +1,5 @@
 
-import React, { useState, useMemo } from 'react';
+import React from 'react';
 import CountrySelector from '../Components/Selects/CountrySelector';
 import SportsSelect from '../Components/Selects/SportsSelect';
 import ListWeights from '../Components/Selects/ListWheights';
@@ -35,12 +35,12 @@ export default function EditPerfil() {
                 <fieldset>
                     <div>
                         <h3>Datos Personales</h3>
-                        <div class="imputblock">
+                        <div className="imputblock">
                         <label htmlFor="nameimput">Nombre:</label><br/>
                         <input type="text" id="nameimput" name="username" placeholder="Introduce tu nombre" disabled/>
                     </div>
 
-                    <div class="imputblock">
+                    <div className="imputblock">
                         <label htmlFor="lastimput">Apellidos:</label><br/>
                         <input type="text" id="lastimput" name="lastname" placeholder="Introduce tu Apellidos" disabled/>
                     </div><br/>
@@ -60,17 +60,17 @@ export default function EditPerfil() {
                         <ListWeights/>
                     </div>
 
-                    <div class="imputblock">
+                    <div className="imputblock">
                         <h3>Pais:</h3>
                         <CountrySelector/><br/>
                     </div>
 
-                    <div class="imputblock">
+                    <div className="imputblock">
                         <label htmlFor="emailimput">Email:</label><br/>
                         <input required type="email" id="emailimput" name="Email" placeholder="Introduce tu Correo"/>
                     </div>
 
-                    <div class="imputblock">
+                    <div className="imputblock">
                         </div>
                         <label htmlFor="paswordintput">Contraseña:</label><br/>
                         <input required type="password" id="paswordinput" name="password" placeholder="Introduce tu Contraseña"/>

@@ -12,7 +12,7 @@ export default function Feed(props) {
             <div className="parent-feed">
                 <div className="image">
                     
-                <img className="radius" src="/images/52.jpeg"></img>
+                <img className="radius" src="/images/52.jpeg" alt="imagenpost"></img>
                 
                 </div>
                 <div className="name">
