@@ -23,7 +23,7 @@
     margin-left: 4rem;
 }
 
-.entry button{
+button{
     height: 2rem;
     width: 21.2rem;
 }
@@ -166,7 +166,10 @@ button{
     .logo{
         display: none;
     }
-    
+
+    .login-form{
+        size: auto;
+    }
 
 }
 

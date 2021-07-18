@@ -1,60 +1,77 @@
 
-import React from 'react';
+import React,{useEffect, useState} from 'react';
 import {useForm} from '../Components/Hook/UseForm';
 import "../StylesPages/Create&EditPerfil.css";
 import weights from "../data/ListWeights.json";
-import sports from "../data/ListSports.json";
 import roles from "../data/RolesUser.json";
 import prices from "../data/PriceManager.json";
 import countryList from "../data/countryList.json";
 import Select from 'react-select';
+import URL from '../context/Consts';
+import {useAuthContext} from '../context/AuthContext';
+
+
+
 
 
 
 
 export default function CreateAccount() {
-    const initialFormState = {name: "", lastname: "", male: "", female: "", password: "", confirmpassword: "", date: "",
-     weights: "", country: "", role: "", sport:"", specialty: "", price: "", career:""};
-    const [form, handleInputChange, handleSelectChange] = useForm(initialFormState); // Custom Hook
-    // const [extra, setExtra] = useState(false);
-    const handleSubmit = e => {
+    const initialFormState = {firstName: "", lastName: "", sex: "", password: "", confirmpassword: "", birth: "",
+     weight: "", country: "", roles: "", sport_id:"", speciality: "", priceManager: "", career:""};
+    const [form, handleInputChange, handleSelectChange, handleRadioChange] = useForm(initialFormState); // Custom Hook
+    const [sports, setSports] = useState([])
+    useEffect(async ()=>{
+        const response = await fetch(URL+"sports",{method:"GET",headers: new Headers({ 'Authorization': 'Bearer ' +getToken()})});
+        const data = await response.json();    
+        setSports(data.map((e)=>
+        { const labelValue = {label:e.name, value:e.id};
+        return labelValue;        
+    }));
+        
+    },[])
+    const handleSubmit = async e => {
         e.preventDefault();
-        // TODO: fetch con método post a tu endpoint de registro
-
-        // entrar en componenter abrir create account y que el form me devuelva solo los values no el objeto entero 
+        console.log(form);
+        const response = await fetch(URL+"users",{method:"POST",body:JSON.stringify(form), headers: new Headers({ 'Authorization': 'Bearer ' +getToken()})});
+        const data = await response.json();
     };
+    const {getToken} = useAuthContext();
+
+
+    
     
     return (
         <div>
             <h2>Es Momento de unirte a la comunidad Allsports</h2><br/>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} method="POST">
                 <fieldset>
                     <legend>Que perfil tienes?</legend>
                     <div className="imputblock">
                         <h3>Role:</h3>
-                        <Select options={roles} value={form.role.value} onChange={value => handleSelectChange(value.value, "role")} name="role"/><br/>
+                        <Select options={roles} value={form.roles.value} onChange={value => handleSelectChange(value.value, "roles")} name="roles"/><br/>
                     </div>
                     <div className="imputblock">
                         <h3>Disciplina:</h3>
-                        <Select options={sports} value={form.sport.value} onChange={value => handleSelectChange(value.value, "sport")} name="sport"/><br/>
+                        <Select options={sports} value={form.sport_id.value} onChange={value => handleSelectChange(value.value, "sport_id")} name="sport_id"/><br/>
                     </div>
 
-                    {form.role === "Entrenador" && (
+                    {form.roles === "Entrenador" && (
                     <div className="imputblock">
                         <h3>Especialidades:</h3><br/>
-                        <textarea className="textarea-form" name="specialty" id="" cols="45" rows="10" 
+                        <textarea className="textarea-form" name="speciality" id="" cols="45" rows="10" 
                         placeholder="Escribe y resume tus especialidades.."
                         onChange={handleInputChange} value={form.specialty}>
                     </textarea>
                     </div>)}
                     
-                    {form.role === "Manager"  && (
+                    {form.roles === "Manager"  && (
                     <div className="imputblock">
                         <h3>% Segun Contrato:</h3>
-                        <Select options={prices} value={form.prices.value} onChange={value => handleSelectChange(value.value, "price")} name="price"/><br/>
+                        <Select options={prices} value={form.priceManager.value} onChange={value => handleSelectChange(value.value, "priceManager")} name="priceManager"/><br/>
                     </div>)}
 
-                    {form.role === "Atleta" &&(
+                    {form.roles === "Atleta" &&(
                     <div className="imputblock">
                         <h3>Carrera:</h3><br/>
                         <textarea className="textarea-form" name="career" id="" cols="45" rows="10" 
@@ -72,27 +89,28 @@ export default function CreateAccount() {
                         <h3>Datos Personales</h3>
                         <div className="imputblock">
                         <label htmlFor="nameimput" >Nombre:</label><br/>
-                        <input onChange={handleInputChange} value={form.name} type="text" id="nameimput" name="name" placeholder="Introduce tu nombre"/>
+                        <input onChange={handleInputChange} value={form.name} type="text" id="nameimput" name="firstName" placeholder="Introduce tu nombre"/>
                     </div>
 
                     <div className="imputblock">
                         <label htmlFor="lastimput">Apellidos:</label><br/>
-                        <input onChange={handleInputChange} value={form.lastname} type="text" id="lastimput" name="lastname" placeholder="Introduce tu Apellidos"/>
+                        <input onChange={handleInputChange} value={form.lastname} type="text" id="lastimput" name="lastName" placeholder="Introduce tu Apellidos"/>
                     </div><br/>
                     
                     <div className="birthdate">
-                    Fecha: <input onChange={handleInputChange} value={form.date} type="date" name="date"/>
+                    Fecha: <input onChange={handleInputChange} value={form.date} type="date" name="birth"/>
                     </div>
 
-                    <div className="sexo">
+                    <div className="sexo" onChange={handleRadioChange}>
                         <h4>Sexo:</h4>
-                        <input onChange={handleInputChange} value={form.male} type="radio" name="male" required/> Hombre
-                        <input onChange={handleInputChange} value={form.female} type="radio" name="female"/> Mujer
+                        <input onChange={handleRadioChange} value="male" type="radio" name="sex" required/> Hombre
+                        <input onChange={handleRadioChange} value="female" type="radio" name="sex"/> Mujer
                     </div>
+                    
 
                     <div className="weight">
                         <h4>Peso:</h4>
-                        <Select options={weights} value={form.weights.value} onChange={value => handleSelectChange(value.value, "weights")} name="weights"/>
+                        <Select options={weights} value={form.weight.value} onChange={value => handleSelectChange(value.value, "weight")} name="weight"/>
                     </div>
 
                     <div className="imputblock">
@@ -113,10 +131,9 @@ export default function CreateAccount() {
                         <input onChange={handleInputChange} value={form.confirmpassword} required type="password" id="confirmpaswordinput" name="confirmpassword" placeholder="Confirma Contraseña"/>
                     </div>    
                 </fieldset><br/>      
-                <input className type="submit" value="Enviar"></input> 
+                <input type="submit" value="Enviar"></input> 
             </form>
 
-    
         </div>    
     )
 }

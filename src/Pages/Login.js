@@ -39,14 +39,18 @@ export default function Login() {
                 <p className="text">Unete a la comunidad deportiva mas amplia del mundo, haz de tu pasion tu profesion</p>
             </div>
 
-            <form className="entry" onSubmit={handleSubmit} >
-                <h3>Login</h3>
-                <input className="entry-input" type="email" placeholder="Correo electronico" name="username" onChange={handleInputChange} value={form.username}/>
-                <input className="entry-input" type="password"  placeholder="Contraseña" name="password" onChange={handleInputChange} value={form.password}/>
-                <input type="submit" className="entryaccount" value="Iniciar sesión" />
-                {/* <Link className="link-entry" to="/forgot-password">¿Has olvidado la contraseña?</Link>  sacarlo del form*/} 
-                {/* <button className="create"onClick={()=>history.push("/create-account")}>Crear cuenta nueva</button> sacar del form */}
-            </form>  
+            <div className="entry">
+                <form className="login-form" onSubmit={handleSubmit} >
+                    
+                    <h3>Login</h3>
+                    <input className="entry-input" type="email" placeholder="Correo electronico" name="username" onChange={handleInputChange} value={form.username}/>
+                    <input className="entry-input" type="password"  placeholder="Contraseña" name="password" onChange={handleInputChange} value={form.password}/>
+                    <input type="submit" className="entryaccount" value="Iniciar sesión" />
+                    <Link className="link-entry" to="/forgot-password">¿Has olvidado la contraseña?</Link>  
+                    <button className="create"onClick={()=>history.push("/create-account")}>Crear cuenta nueva</button>
+                
+                </form>
+            </div>
         </div>
     )
 }
