@@ -40,6 +40,11 @@ button{
     border-radius: 15px;
     box-shadow: 8px 5px 5px  black;
     height: 30%;
+    width: 300px;
+}
+
+.login-form{
+    padding-left: 0px;
 }
 
 button{
@@ -49,16 +54,25 @@ button{
     font-weight: bold;
     color: white;
     font-weight: 700;
+    
 }
 
 .entryaccount{
     background-color: rgba(0, 153, 255, 0.904);
     border-radius: 6px;   
+    width: 300px;
+    margin-right: 0.1rem;
+    margin-left: 0.1rem;
+    font-weight: 400;
+    font-weight: bold;
+    color: white;
+    font-weight: 700;
+
 }
 
 .create{
     background-color: rgb(13, 194, 13);
-    border-radius: 6px;
+    border-radius: 6px;    
 }
 
 @media only screen and (max-width: 600px){

@@ -13,12 +13,12 @@ import {useAuthContext} from '../context/AuthContext';
 
 
 
-
-
-
 export default function CreateAccount() {
-    const initialFormState = {firstName: "", lastName: "", sex: "", password: "", confirmpassword: "", birth: "",
-     weight: "", country: "", roles: "", sport_id:"", speciality: "", priceManager: "", career:""};
+    
+    const {getToken} = useAuthContext();
+
+    const initialFormState = {firstName: "", lastName: "", sex: "", password: "", birth: "",
+     weight: "", country: "", roles: "", sport_id:"", priceManager:""};
     const [form, handleInputChange, handleSelectChange, handleRadioChange] = useForm(initialFormState); // Custom Hook
     const [sports, setSports] = useState([])
     useEffect(async ()=>{
@@ -28,19 +28,28 @@ export default function CreateAccount() {
         { const labelValue = {label:e.name, value:e.id};
         return labelValue;        
     }));
-        
     },[])
+
+    // console.log(form)
+
     const handleSubmit = async e => {
         e.preventDefault();
         console.log(form);
-        const response = await fetch(URL+"users",{method:"POST",body:JSON.stringify(form), headers: new Headers({ 'Authorization': 'Bearer ' +getToken()})});
+
+        const options = {
+            method:"POST",
+            headers: { 
+                'Authorization': 'Bearer ' + getToken(),
+                "Content-Type": "application/json"},
+            body: JSON.stringify(form) 
+        }
+
+        const response = await fetch(URL+"users", options);
+        // eslint-disable-next-line
         const data = await response.json();
     };
-    const {getToken} = useAuthContext();
 
-
-    
-    
+ 
     return (
         <div>
             <h2>Es Momento de unirte a la comunidad Allsports</h2><br/>

@@ -1,12 +1,43 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react';
 import "../StylesPages/Perfil.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons' 
 import { faPhone, faMapMarked, faGlobeEurope, faCamera } from '@fortawesome/free-solid-svg-icons';
-import Header from "../Components/Header"
-import Feed from "../Components/Home/Feed"
+import Header from "../Components/Header";
+import Feed from "../Components/Home/Feed";
+import {useAuthContext} from '../context/AuthContext';
+import URL from '../context/Consts';
+
+
+
+//TODO HARDCODEO DE LAS PROPIEDADESD E LA BASE DE DATOS
 
 export default function Main() {
+    const [user, setUser]= useState({});
+    const [selectedFile, setSelectedFile] = useState("");
+    const {getToken} = useAuthContext();
+    
+    const onFileChange = event => {setSelectedFile(event.target.files[0]);};
+    const onFileUpload = async () => { 
+        const formData = new FormData(); 
+       
+        formData.append( 
+          "myFile", 
+         selectedFile, 
+         selectedFile.name 
+        ); 
+        const response = await fetch (URL+"post/upload",{method:"POST",body:formData ,headers: new Headers({ 
+        'Authorization': 'Bearer ' +getToken(),
+        "Content-Type": 'multipart/form-data',})});
+    }; 
+
+    useEffect(async ()=>{
+        const response = await fetch(URL+"users/profile",{method:"GET",headers: new Headers({ 'Authorization': 'Bearer ' +getToken()})});
+        const data = await response.json();    
+        setUser(data);
+    },[])
+    
+    
     return (
         <>
         <Header/>
@@ -14,8 +45,8 @@ export default function Main() {
             <main className="data-user container">
                 <div className="photo-main radius"></div>
                 <div className="information">
-                    <h3 className="perfilname">Antonio Muñoz</h3>
-                    <p>Habilidades aasjasasjasjas</p>
+                    <h3 className="perfilname">{user.firstName}</h3>
+                    <p>{user.role}</p>
                 </div>  
                 <div className="photoperfil">
                     <img src="https://randomuser.me/api/portraits/men/22.jpg" alt=""/>
@@ -35,10 +66,10 @@ export default function Main() {
             </div>
             
             <div className="about-me-right">
-                <p><FontAwesomeIcon className="icon" icon={faPhone}/> +34 458774887</p>
-                <p><FontAwesomeIcon className="icon" icon={faMapMarked}/> San Diego, California</p>
+                <p><FontAwesomeIcon className="icon" icon={faPhone}/>{user.email}</p>
+                <p><FontAwesomeIcon className="icon" icon={faMapMarked}/>{user.country}</p>
                 <h3>Bio</h3>
-                <p>Informacion de la persona trallectoria etc etc etc</p>
+                <p>{user.speciality}</p>
             </div>
 
         </div>
@@ -50,8 +81,14 @@ export default function Main() {
                 <div className="area">
                     <textarea className="text-area" name="" id="" cols="30" rows="10" placeholder="Escribe aqui..."></textarea>
                 </div>
-                <div className="footer-publication">
-                    <button className="button-publication"><FontAwesomeIcon icon={faCamera}></FontAwesomeIcon> Examinar </button>
+                <div className="footer-publication" >
+                <div> 
+                <input type="file" onChange={onFileChange} /> 
+                <button onClick={onFileUpload}> 
+                  Upload! 
+                </button> 
+            </div> 
+                    {/* <button className="button-publication"><FontAwesomeIcon icon={faCamera}></FontAwesomeIcon> Examinar </button> */}
                     <button className="button-publication">Guardar</button>
                 </div>
 
