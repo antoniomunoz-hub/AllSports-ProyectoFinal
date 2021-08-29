@@ -75,32 +75,25 @@ export default function Main() {
         </div>
         
         <div className="new-publications radius">
-                <div className="header-publications">
-                    <h4>Nueva Publicacion</h4>
-                </div>
-                <div className="area">
-                    <textarea className="text-area" name="" id="" cols="30" rows="10" placeholder="Escribe aqui..."></textarea>
-                </div>
-                <div className="footer-publication" >
+            <div className="header-publications">
+                <h4>Nueva Publicacion</h4>
+            </div>
+            <div className="area">
+                <textarea className="text-area" name="" id="" cols="30" rows="10" placeholder="Escribe aqui..."></textarea>
+            </div>
+            <div className="footer-publication" >
                 <div> 
-                <input type="file" onChange={onFileChange} /> 
-                <button onClick={onFileUpload}> 
-                  Upload! 
-                </button> 
-            </div> 
-                    {/* <button className="button-publication"><FontAwesomeIcon icon={faCamera}></FontAwesomeIcon> Examinar </button> */}
-                    <button className="button-publication">Guardar</button>
-                </div>
-
+                    <input type="file" onChange={onFileChange} /> 
+                    <button onClick={onFileUpload}>Upload!</button> 
+                </div> 
+                <button className="button-publication">Guardar</button>
             </div>
+        </div>
 
-            <div className="feed-perfil">
-                <Feed editMode={true}/>   
-            </div>
+        <div className="feed-perfil">
+            < Feed editMode={true}/>   
+        </div>
 
-                
-
-            
-        </>
+    </>
     )
 }

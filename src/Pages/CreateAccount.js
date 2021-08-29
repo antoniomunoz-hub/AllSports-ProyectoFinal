@@ -30,6 +30,9 @@ export default function CreateAccount() {
     }));
     },[])
 
+    const [image, setImage] = useState('');
+    const handleImageUpload = e => setImage(e.target.files[0]);
+
     // console.log(form)
 
     const handleSubmit = async e => {
@@ -47,6 +50,28 @@ export default function CreateAccount() {
         const response = await fetch(URL+"users", options);
         // eslint-disable-next-line
         const data = await response.json();
+
+
+        const formImage = new FormData();
+        formImage.append("File", image);
+                
+        const optionsImage = {
+            method: "POST",
+            body: formImage
+        }
+
+        const responseImage = await fetch(URL+"users/uploadImage/" + data.id, optionsImage);
+        // eslint-disable-next-line
+        const dataImage = await responseImage;
+
+        console.log(dataImage);
+
+        if(response.status >= 200 && response.status < 300) {
+            alert("Usuario creado correcta")
+        } else {
+            alert("Login incorrecto");
+        }
+
     };
 
  
@@ -87,8 +112,7 @@ export default function CreateAccount() {
                         placeholder="Resumenos tu carrera profesional/amateur.."
                         onChange={handleInputChange} value={form.career}>
                     </textarea>
-                </div>)}
-
+                    </div>)}
                 </fieldset>
 
                 <br/>
@@ -138,8 +162,16 @@ export default function CreateAccount() {
                         <input onChange={handleInputChange} value={form.password} required type="password" id="paswordinput" name="password" placeholder="Introduce tu Contraseña"/>
                         <label htmlFor="confirmpaswordintput"></label><br/>
                         <input onChange={handleInputChange} value={form.confirmpassword} required type="password" id="confirmpaswordinput" name="confirmpassword" placeholder="Confirma Contraseña"/>
-                    </div>    
-                </fieldset><br/>      
+                    </div>  
+
+                    <div className="imputblock">
+                        <label htmlFor="imgpath" className="form-label">Tu foto de perfil</label>
+                        <input onChange={handleImageUpload} name="imgpath" type="file" id="imgpath" className="form-control" accept="png jpg jpeg" />                  
+                    </div>  
+                </fieldset>
+                <br/>
+
+
                 <input type="submit" value="Enviar"></input> 
             </form>
 

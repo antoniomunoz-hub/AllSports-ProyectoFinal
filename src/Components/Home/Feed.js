@@ -5,6 +5,8 @@ import EditPublication from './EditPublication'
 export default function Feed(props) {
     const [showModal, setShowModal ] =useState(false);
     const handleClose = () => setShowModal(false);
+
+    const POST_HARDCODED = {name: "Marcus Almeida", textPublication: "Hola Que Tal", tittle:"Titulo Publicacion"}
     return (
         <>
         {/* {posts.map(post => <Post post={post}/>)} */}
@@ -16,13 +18,13 @@ export default function Feed(props) {
                 
                 </div>
                 <div className="name">
-                    <h4>Marcus Almeida</h4>
-                    <h5>Hola que tal</h5>
+                    <h4>{POST_HARDCODED.name}</h4>
+                    <h5>{POST_HARDCODED.textPublication}</h5>
                 </div>   
             </div>
             
             <div className="content-publication">
-            <p>Titulo publicacion</p>
+            <p>{POST_HARDCODED.tittle}</p>
             <img className="radius" src="/images/mountain.jpg" alt=""/>    
         </div>
         {props.editMode && (
